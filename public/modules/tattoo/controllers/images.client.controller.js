@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tatoo').controller('ImagesController', ['$scope',
+angular.module('tattoo').controller('ImagesController', ['$scope',
 	function($scope) {
 		// Controller Logic
 		// ...
