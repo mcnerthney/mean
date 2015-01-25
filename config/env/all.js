@@ -45,6 +45,7 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
 				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+                'public/lib/ngImgCrop/compile/unminified/ng-img-crop.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -54,7 +55,8 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
                 'public/lib/flow.js/dist/flow.js',
-                'public/lib/ng-flow/dist/ng-flow.js'
+                'public/lib/ng-flow/dist/ng-flow.js',
+                'public/lib/ngImgCrop/compile/unminified/ng-img-crop.js'
 			]
 		},
 		css: [

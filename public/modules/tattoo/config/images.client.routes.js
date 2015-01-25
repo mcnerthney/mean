@@ -24,5 +24,27 @@ angular.module('tattoo').config(['$stateProvider',
 //            });
 
 
-	}
-]);
+	}])
+    .config(['flowFactoryProvider', function (flowFactoryProvider) {
+
+
+        flowFactoryProvider.defaults = {
+            target: '/upload',
+            testChunks:false,
+            singleFile: false,
+            generateUniqueIdentifier: function generateGuid (file) {
+                function s4() {
+                    return Math.floor((1 + Math.random()) * 0x10000)
+                        .toString(16)
+                        .substring(1);
+                }
+                 return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                        s4() + '-' + s4() + s4() + s4();
+
+            }};
+
+
+        flowFactoryProvider.on('catchAll', function (event) {
+            console.log('catchAll', arguments);
+        });
+    }]);
