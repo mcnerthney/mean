@@ -1,22 +1,57 @@
 <section data-ng-controller="ImagesController">
 
-    <div class='crop'>
+    <div class="col-md-12" flow-init="{singleFile:true}" flow-name="mFlow.flow" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+        <h3>Create Tattoo</h3>
+
+        <form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
+            <fieldset>
+                <div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
+                    <label class="control-label" for="title">Title</label>
+                    <div class="controls">
+                        <input name="title" type="text" data-ng-model="title" id="title" class="form-control" placeholder="Title" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="content">Content</label>
+                    <div class="controls">
+                        <textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div class="form-group"  class="ng-scope">
 
 
-        <div>Select an image file: <input type="file" id="fileInput" /></div>
-        <div class="cropArea">
-            <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
-        </div>
-        <div>Cropped Image:</div>
-        <div><img ng-src="{{myCroppedImage}}" /></div>
+                    <div class="thumbnail" ng-show="!$flow.files.length">
+                        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
+                    </div>
+                    <div class="thumbnail ng-hide" ng-show="$flow.files.length">
+                        <img flow-img="$flow.files[0]">
+                    </div>
+                    <div>
+                        <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Select image</span>
+                        <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change</span>
+                        <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">Remove</span>
+                    </div>
+                    <p>
+                        Only PNG,GIF,JPG,JEPG files allowed.
+                    </p>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-small btn-success" ng-click="imageUpload()">Share</a>
+                </div>
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
 
 
-        <div class="page-header">
-            <h1>New Image</h1>
-        </div>
+            </fieldset>
 
-    </div>
-    <div class="col-md-12">
+
+
+
+
+
+
+
         <!--		<form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
                     <fieldset>
                         <div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
@@ -39,30 +74,9 @@
                         </div>
                     </fieldset>
                 </form>-->
+           <div ng-show='false'>
 
-
-        <div flow-init="{singleFile:true}" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" class="ng-scope">
-            <h3>
-                <a name="image-example" class="anchor" href="#image-example"><span class="octicon octicon-link"></span></a>Single Image upload</h3>
-            <div class="thumbnail" ng-show="!$flow.files.length">
-                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image">
-            </div>
-            <div class="thumbnail ng-hide" ng-show="$flow.files.length">
-                <img flow-img="$flow.files[0]">
-            </div>
-            <div>
-                <span class="btn btn-primary" ng-show="!$flow.files.length" flow-btn="">Select image<input type="file" style="visibility: hidden; position: absolute;"></span>
-                <span class="btn btn-info ng-hide" ng-show="$flow.files.length" flow-btn="">Change<input type="file" style="visibility: hidden; position: absolute;"></span>
-                <span class="btn btn-danger ng-hide" ng-show="$flow.files.length" ng-click="$flow.cancel()">
-                    Remove
-                </span>
-            </div>
-            <p>
-                Only PNG,GIF,JPG,JEPG files allowed.
-            </p>
-
-
-            <h2>Transfers:</h2>
+            <h2 ng-hide>Transfers:</h2>
 
             <p>
                 <a class="btn btn-small btn-success" ng-click="$flow.resume()">Upload</a>
@@ -118,8 +132,11 @@
                 </tr>
                 </tbody>
             </table>
+            </div>
 
-        </div>
+        </form>
+    </div>
+    </div>
 
     </div>
 </section>

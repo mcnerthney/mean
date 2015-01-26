@@ -3,20 +3,10 @@
 angular.module('tattoo').controller('ImagesController', ['$scope',
 	function($scope) {
 		// Controller Logic
-        $scope.myImage='';
-        $scope.myCroppedImage='';
-
-        var handleFileSelect=function(evt) {
-            var file=evt.currentTarget.files[0];
-            var reader = new FileReader();
-            reader.onload = function (evt) {
-                $scope.$apply(function($scope){
-                    $scope.myImage=evt.target.result;
-                });
-            };
-            reader.readAsDataURL(file);
+        $scope.mImage='';
+        $scope.mFlow = { };
+        $scope.imageUpload = function() {
+            $scope.mFlow.flow.upload();
         };
-        angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
-
     }
 ]);
