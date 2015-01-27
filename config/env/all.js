@@ -56,7 +56,8 @@ module.exports = {
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
                 'public/lib/flow.js/dist/flow.js',
                 'public/lib/ng-flow/dist/ng-flow.js',
-                'public/lib/ngImgCrop/compile/unminified/ng-img-crop.js'
+                'public/lib/ngImgCrop/compile/unminified/ng-img-crop.js',
+                'public/lib/angular-base64-upload/dist/angular-base64-upload.js'
 			]
 		},
 		css: [
