@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tattoo').controller('tattooController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tattoos',
+angular.module('tattoo').controller('TattoosController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tattoos',
     function($scope, $stateParams, $location, Authentication, Tattoos) {
         $scope.authentication = Authentication;
 
@@ -54,8 +54,8 @@ angular.module('tattoo').controller('tattooController', ['$scope', '$stateParams
         };
 
         $scope.findOne = function() {
-            $scope.tattoos = Tattoos.get({
-                tattooIf: $stateParams.tattooId
+            $scope.tattoo = Tattoos.get({
+                tattooId: $stateParams.tattooId
             });
         };
 

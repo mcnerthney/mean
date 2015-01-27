@@ -1,0 +1,20 @@
+<section data-ng-controller="TattoosController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Tattoos</h1>
+	</div>
+	<div class="list-group">
+		<a data-ng-repeat="tattoo in tattoos" data-ng-href="#!/tattoos/{{tattoo._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="tattoo.created | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="tattoo.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="tattoo.title"></h4>
+			<p class="list-group-item-text" data-ng-bind="tattoo.content"></p>
+		</a>
+	</div>
+	<div class="alert alert-warning text-center" data-ng-if="tattoos.$resolved && !tattoos.length">
+		No tattoos yet, why don't you <a href="/#!/tattoos/create">create one</a>?
+	</div>
+</section>

@@ -19,7 +19,7 @@ angular.module('articles').config(['$stateProvider',
 		}).
 		state('editArticle', {
 			url: '/articles/:articleId/edit',
-			templateUrl: 'modules/articles/views/edit-article.client.view.html'
+			templateUrl: 'modules/articles/views/edit-tattoo.client.view.html'
 		});
 	}
 ]);
